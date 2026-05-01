@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* DeeVa — soft vanilla cream palette */
+    --background: 40 50% 98%;            /* vanilla cream — main bg */
+    --foreground: 30 10% 15%;            /* graphite */
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 30 12% 18%;               /* deep graphite */
+    --primary-foreground: 40 50% 98%;
+
+    --secondary: 40 45% 96%;             /* soft vanilla — section bg */
+    --secondary-foreground: 30 12% 18%;
+
+    --muted: 40 40% 95%;                 /* slightly cooler cream */
+    --muted-foreground: 30 8% 42%;
+
+    --accent: 38 55% 94%;                /* warm cream accent */
+    --accent-foreground: 30 12% 18%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 36 25% 90%;
+    --input: 36 25% 90%;
+    --ring: 30 10% 25%;
+
+    --radius: 1.5rem;
+
+    --beige: 40 45% 94%;
+    --sky: 38 55% 92%;                   /* warm cream (kept name for compatibility) */
+
+    /* Brand accent — muted dusty rose (tuned for AA contrast on white text) */
+    --brand: 345 32% 48%;                /* dusty rose, deeper for contrast */
+    --brand-foreground: 0 0% 100%;       /* white — ~5.4:1 on --brand */
+    --brand-soft: 345 40% 94%;           /* pale rose backgrounds */
+    --brand-deep: 345 35% 38%;           /* hover state, deeper */
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .font-serif {
+    font-family: 'DM Serif Display', serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-display-serif {
+    font-family: 'DM Serif Display', serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 30s linear infinite; }
+
+  /* GPU-friendly: only opacity + transform (translate3d promotes to its own layer).
+     No filter/blur — those force per-frame composite repaints, especially on mobile. */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translate3d(0, 28px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  .animate-fade-up,
+  .animate-fade-up-delayed {
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-fade-up-delayed { animation-delay: 0.3s; }
+  /* Release the compositor layer once the animation finishes. */
+  .animate-fade-up,
+  .animate-fade-up-delayed { animation-fill-mode: both; }
+
+  /* Shine sweep for premium CTAs */
+  @keyframes shine-sweep {
+    0%   { transform: translateX(-120%) skewX(-20deg); }
+    100% { transform: translateX(220%)  skewX(-20deg); }
+  }
+  .shine-cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .shine-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      hsl(var(--primary) / 0.12) 45%,
+      hsl(var(--primary) / 0.22) 50%,
+      hsl(var(--primary) / 0.12) 55%,
+      transparent 80%
+    );
+    transform: translate3d(-120%, 0, 0) skewX(-20deg);
+    z-index: 1;
+  }
+  .shine-cta:hover::before,
+  .shine-cta:focus-visible::before {
+    animation: shine-sweep 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+  /* Honor reduced-motion preferences (also helps low-end devices). */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-up-delayed,
+    .animate-marquee,
+    .shine-cta::before {
+      animation: none !important;
+    }
+    .animate-fade-up,
+    .animate-fade-up-delayed { opacity: 1; transform: none; }
+  }
+  .shine-cta > * { position: relative; z-index: 2; }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .animate-fade-in { animation: fade-in 1.2s ease-out both; }
+}
+
+@layer utilities {
+  @keyframes slide-up-fade {
+    0%   { opacity: 0; transform: translateY(100%); }
+    15%  { opacity: 1; transform: translateY(0); }
+    85%  { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-100%); }
+  }
+  .animate-slide-up-fade {
+    animation: slide-up-fade 3.5s ease-in-out both;
+  }
+}
