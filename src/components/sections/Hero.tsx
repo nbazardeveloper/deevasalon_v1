@@ -3,9 +3,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import slider1 from "@/assets/slider1.webp";
 import slider2 from "@/assets/slider2.webp";
 import slider3 from "@/assets/slider3.webp";
-import heroMobileNeon from "@/assets/hero-mobile-neon.jpg";
-import heroMobileSlide1 from "@/assets/hero-mobile-slide1.jpg";
-import heroNeonTips from "@/assets/hero-neon-tips.jpg";
+import heroMobileNeon from "@/assets/hero-mobile-neon.webp";
+import heroMobileSlide1 from "@/assets/hero-mobile-slide1.webp";
+import heroNeonTips from "@/assets/hero-neon-tips.webp";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const desktopSlides = [
@@ -67,7 +67,7 @@ export const Hero = () => {
           width={1920}
           height={1080}
           loading={idx === 0 ? "eager" : "lazy"}
-          fetchPriority={idx === 0 ? "high" : "low"}
+          {...({ fetchpriority: idx === 0 ? "high" : "low" } as any)}
           decoding="async"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${
             idx === i ? "opacity-100" : "opacity-0"
@@ -147,7 +147,7 @@ export const Hero = () => {
         href="#newsletter"
         className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 items-center justify-center w-12 bg-accent text-accent-foreground text-xs tracking-[0.25em] uppercase py-6 [writing-mode:vertical-rl] rotate-180 hover:bg-sky transition"
       >
-        10% Off · Subscribe
+        10% off - gift card
       </a>
     </section>
   );

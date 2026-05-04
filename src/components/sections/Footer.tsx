@@ -5,11 +5,11 @@ import { useToast } from "@/hooks/use-toast";
 type Item = { label: string; href: string };
 const cols: { t: string; l: Item[] }[] = [
   { t: "Services", l: [
-    { label: "Russian Manicure", href: "#categories" },
-    { label: "Gel-X & Extensions", href: "#categories" },
-    { label: "Dip Powder", href: "#categories" },
-    { label: "Hard-Gel", href: "#categories" },
-    { label: "Pedicures", href: "#categories" },
+    { label: "Russian Manicure", href: "https://www.vagaro.com/deevanailboutique/services" },
+    { label: "Gel-X & Extensions", href: "https://www.vagaro.com/deevanailboutique/services" },
+    { label: "Dip Powder", href: "https://www.vagaro.com/deevanailboutique/services" },
+    { label: "Hard-Gel", href: "https://www.vagaro.com/deevanailboutique/services" },
+    { label: "Pedicures", href: "https://www.vagaro.com/deevanailboutique/services" },
     { label: "Gift Cards", href: "https://www.vagaro.com/deevanailboutique" },
   ]},
   { t: "Visit", l: [
@@ -19,19 +19,10 @@ const cols: { t: string; l: Item[] }[] = [
     { label: "Parking", href: "#visit" },
     { label: "Contact", href: "#visit" },
   ]},
-  { t: "Studio", l: [
-    { label: "Our Story", href: "#story" },
-    { label: "Non-Toxic Products", href: "#story" },
-    { label: "Sanitation", href: "#story" },
-    { label: "Press", href: "#" },
-    { label: "Careers", href: "#" },
-  ]},
   { t: "Info", l: [
     { label: "Pricing", href: "#pricing" },
-    { label: "Aftercare", href: "#" },
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Use", href: "/terms" },
-    { label: "Accessibility", href: "#" },
   ]},
 ];
 
@@ -43,42 +34,7 @@ export const Footer = () => {
   return (
     <footer className="bg-secondary text-primary px-6 lg:px-12 pt-16 pb-10">
       <div className="mx-auto max-w-[1600px]">
-        {/* Newsletter strip */}
-        <div
-          id="newsletter"
-          className="border-y border-border py-10 mb-14 grid md:grid-cols-2 gap-6 md:gap-10 items-center"
-        >
-          <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-brand-deep mb-2">Stay in touch</p>
-            <h3 className="font-serif text-2xl md:text-3xl leading-tight">
-              Get $15 off your first visit.
-            </h3>
-          </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              toast({ title: "Welcome to DeeVa", description: "Check your inbox for your $15-off code." });
-              setEmail("");
-            }}
-            className="flex border-b border-primary/40 focus-within:border-primary transition"
-          >
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email"
-              aria-label="Email for newsletter"
-              className="flex-1 bg-transparent py-3 px-1 placeholder:text-muted-foreground outline-none text-primary"
-            />
-            <button
-              type="submit"
-              className="text-xs tracking-[0.25em] uppercase px-4 text-brand-deep hover:text-brand transition"
-            >
-              Subscribe →
-            </button>
-          </form>
-        </div>
+
 
         {/* Columns */}
         <div className="grid lg:grid-cols-5 lg:gap-12 mb-12">
@@ -91,7 +47,7 @@ export const Footer = () => {
               Premier nail boutique in Chicago’s West Loop. Non-toxic products. Walk-ins welcome.
             </p>
             <div className="flex gap-4 mt-6">
-              <a href="https://instagram.com/deeva.nailboutique" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:opacity-60 transition">
+              <a href="https://www.instagram.com/deeva_nailboutique/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:opacity-60 transition">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" aria-label="Facebook" className="hover:opacity-60 transition"><Facebook className="w-5 h-5" /></a>

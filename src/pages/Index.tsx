@@ -11,6 +11,7 @@ const Pricing       = lazy(() => import("@/components/sections/Pricing").then(m 
 const Testimonials  = lazy(() => import("@/components/sections/Testimonials").then(m => ({ default: m.Testimonials })));
 const BrandStory    = lazy(() => import("@/components/sections/BrandStory").then(m => ({ default: m.BrandStory })));
 const InstagramGrid = lazy(() => import("@/components/sections/InstagramGrid").then(m => ({ default: m.InstagramGrid })));
+const GiftCard      = lazy(() => import("@/components/sections/GiftCard").then(m => ({ default: m.GiftCard })));
 const Visit         = lazy(() => import("@/components/sections/Visit").then(m => ({ default: m.Visit })));
 const FinalCTA      = lazy(() => import("@/components/sections/FinalCTA").then(m => ({ default: m.FinalCTA })));
 const Footer        = lazy(() => import("@/components/sections/Footer").then(m => ({ default: m.Footer })));
@@ -37,9 +38,11 @@ const Index = () => (
         <BrandStory />
         {/* 7. Living social proof */}
         <InstagramGrid />
-        {/* 8. Where to come */}
+        {/* 8. Gift cards */}
+        <GiftCard />
+        {/* 9. Where to come */}
         <Visit />
-        {/* 9. Final conversion push */}
+        {/* 10. Final conversion push */}
         <FinalCTA />
       </Suspense>
     </main>

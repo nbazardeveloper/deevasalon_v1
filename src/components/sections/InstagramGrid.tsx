@@ -1,9 +1,9 @@
-import ig1 from "@/assets/ig-1.jpg";
-import ig2 from "@/assets/ig-2.jpg";
-import ig3 from "@/assets/ig-3.jpg";
-import ig4 from "@/assets/ig-4.jpg";
-import ig5 from "@/assets/ig-5.jpg";
-import ig6 from "@/assets/ig-6.jpg";
+import ig1 from "@/assets/ig-1.webp";
+import ig2 from "@/assets/ig-2.webp";
+import ig3 from "@/assets/ig-3.webp";
+import ig4 from "@/assets/ig-4.webp";
+import ig5 from "@/assets/ig-5.webp";
+import ig6 from "@/assets/ig-6.webp";
 
 const imgs = [ig1, ig2, ig3, ig4, ig5, ig6];
 
@@ -14,12 +14,12 @@ export const InstagramGrid = () => (
         <p className="text-xs uppercase tracking-[0.25em] text-brand-deep mb-3">Follow our work</p>
         <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary tracking-tight">
           <a
-            href="https://instagram.com/deeva.nailboutique"
+            href="https://www.instagram.com/deeva_nailboutique/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-baseline gap-1 hover:text-brand-deep transition"
+            className="inline-flex items-baseline gap-1 hover:text-brand-deep transition text-primary"
           >
-            <span className="text-brand">@</span>deeva<span className="text-muted-foreground">.</span>nailboutique
+            <span className="text-primary">@deeva_nailboutique</span>
           </a>
         </h2>
       </div>

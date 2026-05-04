@@ -1,7 +1,7 @@
-import p1 from "@/assets/product-1.jpg";
-import p2 from "@/assets/product-2.jpg";
-import p3 from "@/assets/product-3.jpg";
-import p4 from "@/assets/product-4.jpg";
+import p1 from "@/assets/product-1.webp";
+import p2 from "@/assets/product-2.webp";
+import p3 from "@/assets/product-3.webp";
+import p4 from "@/assets/product-4.webp";
 
 type Product = { img: string; tag?: string; name: string; type: string; price: string };
 

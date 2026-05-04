@@ -1,6 +1,8 @@
 import { Phone, Menu, X, Instagram } from "lucide-react";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import logoBlack from "@/assets/logos/Logo-black.webp";
+import logoWhite from "@/assets/logos/Logo-white.webp";
 
 const PHONE_DISPLAY = "(312) 841-7587";
 const PHONE_HREF = "tel:+13128417587";
@@ -74,14 +76,14 @@ export const Header = () => {
         {/* Center col — logo */}
         <a
           href="/"
-          className="flex flex-col items-center justify-self-center leading-none [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]"
+          className="flex items-center justify-self-center leading-none"
+          aria-label="DeeVa Nail Boutique"
         >
-          <span className="font-serif font-bold text-[2.25rem] lg:text-[3rem] tracking-[0.15em] leading-none">
-            DeeVa
-          </span>
-          <span className="text-[9px] lg:text-[11px] tracking-[0.4em] uppercase opacity-80 mt-1">
-            Nail Boutique
-          </span>
+          <img
+            src={open || scrolled ? logoBlack : logoWhite}
+            alt="DeeVa Nail Boutique"
+            className="h-10 w-auto lg:h-12"
+          />
         </a>
 
         {/* Right col */}
@@ -91,6 +93,19 @@ export const Header = () => {
             className="hidden xl:inline-flex items-center px-5 py-2.5 rounded-full bg-brand text-brand-foreground hover:bg-brand-deep transition text-xs tracking-[0.25em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             Book now
+          </a>
+          <a
+            href="https://www.vagaro.com/deevanailboutique"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              `hidden xl:inline-flex items-center px-5 py-2.5 rounded-full transition text-xs tracking-[0.25em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ` +
+              (open || scrolled
+                ? 'bg-white text-brand border border-brand hover:bg-brand hover:text-brand-foreground focus-visible:ring-brand'
+                : 'border border-white text-white hover:bg-white hover:text-brand focus-visible:ring-white')
+            }
+          >
+            Gift Card
           </a>
           <a
             href={PHONE_HREF}
@@ -155,6 +170,15 @@ export const Header = () => {
                 Book now
               </a>
               <a
+                href="https://www.vagaro.com/deevanailboutique"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center justify-center px-5 py-3 rounded-full border border-brand text-brand hover:bg-brand hover:text-brand-foreground transition text-xs tracking-[0.25em] uppercase"
+              >
+                Gift Card
+              </a>
+              <a
                 href={PHONE_HREF}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition text-sm"
               >
@@ -162,14 +186,14 @@ export const Header = () => {
                 {PHONE_DISPLAY}
               </a>
               <a
-                href="https://instagram.com/deeva.nailboutique"
+                href="https://www.instagram.com/deeva_nailboutique/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-border text-primary hover:bg-secondary transition text-xs tracking-[0.25em] uppercase"
               >
                 <Instagram className="w-4 h-4" />
-                @deeva.nailboutique
+                @deeva_nailboutique
               </a>
             </div>
           </aside>

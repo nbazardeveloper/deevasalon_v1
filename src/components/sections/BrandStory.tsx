@@ -1,4 +1,4 @@
-import story from "@/assets/story.jpg";
+import story from "@/assets/story.webp";
 
 export const BrandStory = () => (
   <section id="discover" className="py-20 lg:py-28 px-6 lg:px-12 bg-secondary/40">

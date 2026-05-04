@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import manicureImg from "@/assets/cat-manicure.jpg";
-import pedicureImg from "@/assets/cat-pedicure.jpg";
+import manicureImg from "@/assets/cat-manicure.webp";
+import pedicureImg from "@/assets/cat-pedicure.webp";
 
 type Service = { name: string; desc: string; price: string };
 
