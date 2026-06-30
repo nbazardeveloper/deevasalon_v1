@@ -1,11 +1,40 @@
-import ig1 from "@/assets/ig-1.webp";
-import ig2 from "@/assets/ig-2.webp";
-import ig3 from "@/assets/ig-3.webp";
-import ig4 from "@/assets/ig-4.webp";
-import ig5 from "@/assets/ig-5.webp";
-import ig6 from "@/assets/ig-6.webp";
+import img01 from "@/assets/ourwork/deeva-nail-art-chicago-1.webp";
+import img02 from "@/assets/ourwork/deeva-nail-art-chicago-2.webp";
+import img03 from "@/assets/ourwork/deeva-nail-art-chicago-3.webp";
+import img04 from "@/assets/ourwork/deeva-nail-art-chicago-4.webp";
+import img05 from "@/assets/ourwork/deeva-nail-art-chicago-5.webp";
+import img06 from "@/assets/ourwork/deeva-nail-art-chicago-6.webp";
+import img07 from "@/assets/ourwork/deeva-russian-manicure-west-loop-1.webp";
+import img08 from "@/assets/ourwork/deeva-russian-manicure-west-loop-2.webp";
+import img09 from "@/assets/ourwork/deeva-gel-x-extensions-chicago-1.webp";
+import img10 from "@/assets/ourwork/deeva-gel-x-extensions-chicago-2.webp";
+import img11 from "@/assets/ourwork/deeva-nail-design-boutique-chicago-1.webp";
+import img12 from "@/assets/ourwork/deeva-nail-design-boutique-chicago-2.webp";
+import img13 from "@/assets/ourwork/deeva-manicure-nail-boutique-chicago-1.webp";
+import img14 from "@/assets/ourwork/deeva-manicure-nail-boutique-chicago-2.webp";
+import img15 from "@/assets/ourwork/deeva-nail-art-west-loop-salon-1.webp";
+import img16 from "@/assets/ourwork/deeva-nail-art-west-loop-salon-2.webp";
+import img17 from "@/assets/ourwork/deeva-premium-nail-care-chicago.webp";
 
-const imgs = [ig1, ig2, ig3, ig4, ig5, ig6];
+const imgs = [
+  { src: img01, alt: "DEEVA nail art Chicago" },
+  { src: img02, alt: "DEEVA nail art Chicago" },
+  { src: img03, alt: "DEEVA nail art Chicago" },
+  { src: img04, alt: "DEEVA nail art Chicago" },
+  { src: img05, alt: "DEEVA nail art Chicago" },
+  { src: img06, alt: "DEEVA nail art Chicago" },
+  { src: img07, alt: "DEEVA Russian manicure West Loop" },
+  { src: img08, alt: "DEEVA Russian manicure West Loop" },
+  { src: img09, alt: "DEEVA Gel-X extensions Chicago" },
+  { src: img10, alt: "DEEVA Gel-X extensions Chicago" },
+  { src: img11, alt: "DEEVA nail design boutique Chicago" },
+  { src: img12, alt: "DEEVA nail design boutique Chicago" },
+  { src: img13, alt: "DEEVA manicure nail boutique Chicago" },
+  { src: img14, alt: "DEEVA manicure nail boutique Chicago" },
+  { src: img15, alt: "DEEVA nail art West Loop salon" },
+  { src: img16, alt: "DEEVA nail art West Loop salon" },
+  { src: img17, alt: "DEEVA premium nail care Chicago" },
+];
 
 export const InstagramGrid = () => (
   <section id="gallery" className="py-20 lg:py-28 px-6 lg:px-12">
@@ -19,16 +48,22 @@ export const InstagramGrid = () => (
             rel="noopener noreferrer"
             className="inline-flex items-baseline gap-1 hover:text-brand-deep transition text-primary"
           >
-            <span className="text-primary">@deeva_nailboutique</span>
+            @deeva_nailboutique
           </a>
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-3">
-        {imgs.map((src, i) => (
-          <a key={i} href="#" className="block aspect-square overflow-hidden bg-secondary group">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+        {imgs.map((img, i) => (
+          <a
+            key={i}
+            href="https://www.instagram.com/deeva_nailboutique/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block aspect-square overflow-hidden bg-secondary group"
+          >
             <img
-              src={src}
-              alt={`Instagram ${i + 1}`}
+              src={img.src}
+              alt={img.alt}
               loading="lazy"
               width={800}
               height={800}

@@ -5,17 +5,17 @@ import { useToast } from "@/hooks/use-toast";
 type Item = { label: string; href: string };
 const cols: { t: string; l: Item[] }[] = [
   { t: "Services", l: [
-    { label: "Russian Manicure", href: "https://www.vagaro.com/deevanailboutique/services" },
-    { label: "Gel-X & Extensions", href: "https://www.vagaro.com/deevanailboutique/services" },
-    { label: "Dip Powder", href: "https://www.vagaro.com/deevanailboutique/services" },
-    { label: "Hard-Gel", href: "https://www.vagaro.com/deevanailboutique/services" },
-    { label: "Pedicures", href: "https://www.vagaro.com/deevanailboutique/services" },
-    { label: "Gift Cards", href: "https://www.vagaro.com/deevanailboutique" },
+    { label: "Russian Manicure", href: "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" },
+    { label: "Gel-X & Extensions", href: "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" },
+    { label: "Dip Powder", href: "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" },
+    { label: "Hard-Gel", href: "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" },
+    { label: "Pedicures", href: "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" },
+    { label: "Gift Cards", href: "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" },
   ]},
   { t: "Visit", l: [
     { label: "West Loop, Chicago", href: "#visit" },
     { label: "Hours & Walk-Ins", href: "#visit" },
-    { label: "Book Online", href: "https://www.vagaro.com/deevanailboutique/services" },
+    { label: "Book Online", href: "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" },
     { label: "Parking", href: "#visit" },
     { label: "Contact", href: "#visit" },
   ]},
@@ -40,10 +40,10 @@ export const Footer = () => {
         <div className="grid lg:grid-cols-5 lg:gap-12 mb-12">
           <div className="lg:col-span-1 mb-10 lg:mb-0">
             <div className="mb-6">
-              <div className="font-serif text-3xl tracking-[0.3em]">DeeVa</div>
-              <div className="text-xs tracking-[0.4em] uppercase opacity-70 mt-1">Nail Boutique</div>
+              <div className="font-serif text-3xl tracking-[0.3em] uppercase">DEEVA</div>
+              <div className="text-xs tracking-[0.4em] uppercase opacity-70 mt-1">NAIL BOUTIQUE</div>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               Premier nail boutique in Chicago’s West Loop. Non-toxic products. Walk-ins welcome.
             </p>
             <div className="flex gap-4 mt-6">
@@ -76,7 +76,7 @@ export const Footer = () => {
 
                 <ul
                   id={`footer-col-${c.t}`}
-                  className={`space-y-3 text-sm overflow-hidden transition-all duration-300 ${
+                  className={`space-y-3 overflow-hidden transition-all duration-300 ${
                     isOpen ? "max-h-96 pb-5" : "max-h-0 lg:max-h-none"
                   } lg:block`}
                 >
@@ -98,8 +98,8 @@ export const Footer = () => {
           })}
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between gap-4 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} DeeVa Nail Boutique. All rights reserved.</span>
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-muted-foreground">
+          <span>© {new Date().getFullYear()} DEEVA NAIL BOUTIQUE. All rights reserved.</span>
           <div className="flex gap-5">
             <a href="/privacy" className="hover:text-primary transition">Privacy Policy</a>
             <a href="/terms" className="hover:text-primary transition">Terms of Use</a>

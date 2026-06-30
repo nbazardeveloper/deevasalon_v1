@@ -67,9 +67,9 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"DM Serif Display"', "serif"],
-        display: ['"DM Serif Display"', "serif"],
-        sans: ['"DM Serif Display"', "serif"],
+        /* Два шрифта, два имени — больше ничего */
+        serif: ['"DM Serif Display"', "serif"],   /* заголовки, меню, числа */
+        sans:  ['"DM Sans"', "sans-serif"],        /* всё остальное */
       },
       borderRadius: {
         lg: "var(--radius)",

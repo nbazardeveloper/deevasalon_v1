@@ -34,7 +34,7 @@ export const Visit = () => (
         {/* Map */}
         <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:min-h-[520px] overflow-hidden rounded-[2rem] shadow-xl">
           <iframe
-            title="DeeVa Nail Boutique location"
+            title="DEEVA Nail Boutique location"
             src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -75,7 +75,7 @@ export const Visit = () => (
               <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">Business Hours</p>
               <ul className="divide-y divide-border">
                 {hours.map((row) => (
-                  <li key={row.d} className="flex justify-between py-2 text-sm">
+                  <li key={row.d} className="flex justify-between py-2">
                     <span className="text-primary">{row.d}</span>
                     <span className="text-muted-foreground">{row.h}</span>
                   </li>
@@ -90,7 +90,7 @@ export const Visit = () => (
               {amenities.map((a) => {
                 const Icon = a.icon;
                 return (
-                  <li key={a.label} className="flex items-center gap-2 text-sm text-primary">
+                  <li key={a.label} className="flex items-center gap-2 text-primary">
                     <Icon className="w-4 h-4 text-brand-deep shrink-0" />
                     <span>{a.label}</span>
                   </li>
@@ -100,7 +100,7 @@ export const Visit = () => (
           </div>
 
           <a
-            href="https://www.vagaro.com/deevanailboutique/services"
+            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-flex w-full items-center justify-center px-7 py-4 rounded-full bg-brand text-brand-foreground text-xs tracking-[0.25em] uppercase hover:bg-brand-deep transition"

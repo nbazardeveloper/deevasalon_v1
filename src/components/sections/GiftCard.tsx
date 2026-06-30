@@ -1,6 +1,6 @@
 import giftCardImage from "@/assets/deeva-giftcard.webp";
 
-const GIFT_CARD_URL = "https://www.vagaro.com/deevanailboutique";
+const GIFT_CARD_URL = "https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services";
 
 export const GiftCard = () => (
   <section className="px-6 py-20 lg:px-12 lg:py-28 bg-secondary/20">
@@ -11,8 +11,8 @@ export const GiftCard = () => (
           A little extra for every gift.
         </h2>
         <div className="mt-5 flex flex-col items-center gap-1">
-          <div className="mt-2 text-xs md:text-sm text-muted-foreground font-normal">
-            <span className="block">Choose your gift card and get up to <span className="text-brand-deep font-semibold">15% bonus</span> for your loved ones.</span>
+          <div className="mt-2 text-muted-foreground font-normal">
+            <span className="block">Choose your gift card and get up to <span className="text-brand-deep font-semibold">10% bonus</span> for your loved ones.</span>
           </div>
         </div>
       </div>
@@ -22,11 +22,11 @@ export const GiftCard = () => (
         target="_blank"
         rel="noopener noreferrer"
         className="group mx-auto block max-w-2xl overflow-hidden rounded-xl bg-background shadow-xl transition-transform duration-300 hover:-translate-y-1"
-        aria-label="Open DeeVa gift card page on Vagaro"
+        aria-label="Open DeeVa gift card page"
       >
         <img
           src={giftCardImage}
-          alt="DeeVa Nail Boutique gift card"
+          alt="DEEVA Nail Boutique gift card"
           className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
           loading="lazy"
         />

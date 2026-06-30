@@ -7,6 +7,7 @@ import heroMobileNeon from "@/assets/hero-mobile-neon.webp";
 import heroMobileSlide1 from "@/assets/hero-mobile-slide1.webp";
 import heroNeonTips from "@/assets/hero-neon-tips.webp";
 import { useIsMobile } from "@/hooks/use-mobile";
+import logoWhite from "@/assets/logos/Logo-white.webp";
 
 const desktopSlides = [
   { img: slider1, title: "Manicure\nExtensions\nPedicure", cta: "Book an appointment now" },
@@ -78,27 +79,29 @@ export const Hero = () => {
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
-      {/* Giant brand mark */}
-      <span
-        key={`brand-${i}`}
-        aria-hidden
-        className="hidden lg:block font-serif text-primary-foreground absolute left-1/2 top-[28%] -translate-x-1/2 text-[22vw] leading-[0.8] tracking-tighter pointer-events-none opacity-40 mix-blend-overlay animate-fade-in"
-      >
-        DeeVa
-      </span>
+      {/* Logo watermark — first slide only */}
+      {i === 0 && (
+        <img
+          key="brand-0"
+          src={logoWhite}
+          alt=""
+          aria-hidden
+          className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] max-w-2xl pointer-events-none opacity-30 mix-blend-overlay animate-fade-in"
+        />
+      )}
 
       {/* Slide title + CTA bottom-left */}
       <div className="absolute left-6 lg:left-16 bottom-16 lg:bottom-20 max-w-2xl">
         <h1
           key={`title-${i}`}
-          className="font-display-serif text-primary-foreground text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-[-0.01em] whitespace-pre-line animate-fade-up drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
+          className="font-serif text-primary-foreground text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-[-0.01em] whitespace-pre-line animate-fade-up drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
         >
           {s.title}
         </h1>
         <div className="mt-10 lg:mt-12 flex flex-wrap gap-3 animate-fade-up-delayed">
           <a
             key={`cta-${i}`}
-            href="https://www.vagaro.com/deevanailboutique/services" target="_blank" rel="noopener noreferrer"
+            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" target="_blank" rel="noopener noreferrer"
             className="shine-cta group inline-flex items-center gap-3 px-9 lg:px-10 py-4 lg:py-5 rounded-full bg-background/95 backdrop-blur-md text-primary text-xs tracking-[0.25em] uppercase shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.45)] ring-1 ring-primary/5 hover:bg-background hover:shadow-[0_18px_50px_-10px_hsl(var(--primary)/0.55)] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:bg-background focus-visible:-translate-y-0.5 focus-visible:shadow-[0_18px_50px_-10px_hsl(var(--primary)/0.55)] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary/40 transition-all duration-300"
           >
             <span>{s.cta}</span>

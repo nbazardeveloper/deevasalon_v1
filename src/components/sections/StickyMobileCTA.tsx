@@ -16,7 +16,7 @@ export const StickyMobileCTA = () => {
 
   return (
     <a
-      href="https://www.vagaro.com/deevanailboutique/services"
+      href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Book an appointment"

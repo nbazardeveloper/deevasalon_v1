@@ -7,7 +7,7 @@ const Privacy = () => (
       <h1 className="font-serif text-4xl md:text-5xl mt-6 mb-8">Privacy Policy</h1>
       <div className="prose prose-neutral max-w-none space-y-5 text-sm leading-relaxed text-muted-foreground">
         <p>Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
-        <p>DeeVa Nail Boutique respects your privacy. This policy explains what information we collect and how we use it.</p>
+        <p>DEEVA Nail Boutique respects your privacy. This policy explains what information we collect and how we use it.</p>
         <h2 className="font-serif text-2xl text-foreground mt-8">Information We Collect</h2>
         <p>We collect information you provide when booking an appointment, subscribing to our newsletter, or contacting us — such as your name, email, phone number, and service preferences.</p>
         <h2 className="font-serif text-2xl text-foreground mt-8">How We Use Your Information</h2>

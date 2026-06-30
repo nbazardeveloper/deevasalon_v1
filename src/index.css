@@ -109,16 +109,43 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  /*
+   * CENTRALIZED TYPOGRAPHY
+   * Меняй только эти переменные — весь текст на сайте подстроится.
+   * --font-size-base: базовый размер (rem = 16px браузера).
+   * Tailwind классы text-sm / text-base / text-lg масштабируются от него.
+   */
+  :root {
+    --font-size-base: 1.125rem;    /* 18px — основной текст. Меняй только здесь */
+    --line-height-body: 1.8;
+  }
+
+  html {
+    font-size: var(--font-size-base);
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'DM Serif Display', serif;
+    font-family: 'DM Sans', sans-serif;
+    line-height: var(--line-height-body);
   }
 
-  .font-serif {
-    font-family: 'DM Serif Display', serif;
-    letter-spacing: -0.01em;
+  /* Все кнопки и ссылки-кнопки — жирный текст централизованно */
+  button,
+  a[class*="rounded-full"],
+  a[class*="rounded-"] {
+    font-weight: 600;
   }
 
+  /* Все параграфы, списки, ячейки — наследуют базовый размер автоматически */
+  p, li, td, th, span:not([class*="text-xs"]):not([class*="text-\[1"]):not([class*="uppercase"]) {
+    line-height: var(--line-height-body);
+  }
+
+  /* Мелкие метки (uppercase tracking) не трогаем — они намеренно xs */
+
+  /* Единственный класс для DM Serif Display — используй font-serif везде */
+  .font-serif,
   .font-display-serif {
     font-family: 'DM Serif Display', serif;
     letter-spacing: -0.01em;

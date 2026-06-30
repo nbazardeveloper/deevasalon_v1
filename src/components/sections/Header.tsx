@@ -13,7 +13,6 @@ const navLinks = [
   { label: "Studio", href: "#discover" },
   { label: "Reviews", href: "#reviews" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#newsletter" },
 ];
 
 export const Header = () => {
@@ -52,10 +51,10 @@ export const Header = () => {
           : "bg-transparent text-primary-foreground"
       }`}
     >
-      <div className="mx-auto max-w-[1600px] px-6 lg:px-12 h-16 lg:h-20 grid grid-cols-3 items-center text-sm lg:text-[0.95rem] tracking-[0.18em] uppercase">
+      <div className="mx-auto max-w-[1600px] px-6 lg:px-12 h-16 lg:h-20 grid grid-cols-3 items-center text-base lg:text-[1.05rem] font-semibold tracking-[0.06em] uppercase">
         {/* Left col */}
         <div className="flex items-center">
-          <nav className="hidden xl:flex items-center gap-8 font-medium">
+          <nav className="hidden xl:flex items-center gap-6 font-serif font-semibold tracking-[0.08em]">
             {navLinks.map((l) => (
               <a key={l.href} href={l.href} className="hover:opacity-60 transition">
                 {l.label}
@@ -76,26 +75,29 @@ export const Header = () => {
         {/* Center col — logo */}
         <a
           href="/"
-          className="flex items-center justify-self-center leading-none"
-          aria-label="DeeVa Nail Boutique"
+          className="flex flex-col items-center justify-self-center leading-none gap-1"
+          aria-label="DEEVA Nail Boutique"
         >
           <img
             src={open || scrolled ? logoBlack : logoWhite}
-            alt="DeeVa Nail Boutique"
-            className="h-10 w-auto lg:h-12"
+            alt="DEEVA Nail Boutique"
+            className="h-8 w-auto lg:h-10 mt-1"
           />
+          <span className="text-[11px] tracking-[0.25em] uppercase font-semibold opacity-90">
+            Nail Boutique
+          </span>
         </a>
 
         {/* Right col */}
         <div className="flex items-center justify-end gap-3 lg:gap-5">
           <a
-            href="https://www.vagaro.com/deevanailboutique/services" target="_blank" rel="noopener noreferrer"
+            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" target="_blank" rel="noopener noreferrer"
             className="hidden xl:inline-flex items-center px-5 py-2.5 rounded-full bg-brand text-brand-foreground hover:bg-brand-deep transition text-xs tracking-[0.25em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             Book now
           </a>
           <a
-            href="https://www.vagaro.com/deevanailboutique"
+            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
             target="_blank"
             rel="noopener noreferrer"
             className={
@@ -163,14 +165,14 @@ export const Header = () => {
             </ul>
             <div className="flex flex-col gap-3">
               <a
-                href="https://www.vagaro.com/deevanailboutique/services" target="_blank" rel="noopener noreferrer"
+                href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" target="_blank" rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="inline-flex items-center justify-center px-5 py-3 rounded-full bg-brand text-brand-foreground hover:bg-brand-deep transition text-xs tracking-[0.25em] uppercase"
               >
                 Book now
               </a>
               <a
-                href="https://www.vagaro.com/deevanailboutique"
+                href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
@@ -180,7 +182,7 @@ export const Header = () => {
               </a>
               <a
                 href={PHONE_HREF}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition text-sm"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition"
               >
                 <Phone className="w-4 h-4" />
                 {PHONE_DISPLAY}

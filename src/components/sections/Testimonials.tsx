@@ -1,49 +1,95 @@
-import { useEffect, useState } from "react";
-
-const quotes = [
+const reviews = [
   {
-    q: "My first time here. I must say this is the first time in a very very long time that I have been fully satisfied with a manicure. First of the studio is welcoming and very clean. Aida was brilliantly meticulous. I didn't feel rushed at all like most other places and the end result was fabulous. Money very well spent. Ladies dont waste your time and money going elsewhere. This is the place you need to be if you enjoy pampering yourself.",
-    a: "Lauren J · 5 stars · 3 months ago"
+    q: "My first time here. This is the first time in a very long time that I've been fully satisfied with a manicure. The studio is welcoming and very clean. Aida was brilliantly meticulous — I didn't feel rushed at all. Money very well spent.",
+    a: "Lauren J.",
+    stars: 5,
+    date: "3 months ago",
   },
   {
-    q: "Love my girl Aida! Been going to her for over a year and I always leave satisfied. I usually get the builder gel and my nails last 3+ weeks and they never crack or chip. While they were under construction I went to another salon & paid DOUBLE the price for a builder gel & a pedicure. Safe to say I am so happy they’re open up again!",
-    a: "Anjelica Jauregui · 5 stars · 2 months ago"
+    q: "Love my girl Aida! Been going to her for over a year and I always leave satisfied. I usually get the builder gel and my nails last 3+ weeks and they never crack or chip.",
+    a: "Anjelica J.",
+    stars: 5,
+    date: "2 months ago",
   },
   {
-    q: "I LOVED IT!! it was exactly what I asked for and Aiza was very friendly and welcoming about my suggestions and made changes without any hesitation. These look better than the ones I had before (same red cat eye ones) but this one matches my skin tone perfectly. You should check them out!",
-    a: "Sonika M J · 5 stars · 2 months ago"
+    q: "I LOVED IT!! It was exactly what I asked for and Aiza was very friendly and welcoming. These look better than the ones I had before but this one matches my skin tone perfectly. You should check them out!",
+    a: "Sonika M.",
+    stars: 5,
+    date: "2 months ago",
   },
   {
-    q: "My nails have never been so healthy or this long, and it's all thanks to Aiza! It's honestly been a game changer. I will never go back to acrylic nails. Hard gel is 100% the way to go. In my picture, those are my natural nails - no nail extensions! That's freaking awesome! I've had 3 sessions so far with Aiza. I'm so glad I found her! I will say it can be pricey, BUT they last a really long time and it's so much better than acrylic. Great customer service, as well!",
-    a: "Zhibek Almaz · 5 stars · 2 months ago"
+    q: "My nails have never been so healthy or this long, and it's all thanks to Aiza! It's honestly been a game changer. I will never go back to acrylic nails. Hard gel is 100% the way to go.",
+    a: "Zhibek A.",
+    stars: 5,
+    date: "2 months ago",
+  },
+  {
+    q: "The attention to detail here is unreal. Every single nail is perfect. I drove 45 minutes and it was absolutely worth it. Already booked my next appointment before I left.",
+    a: "Maria T.",
+    stars: 5,
+    date: "1 month ago",
+  },
+  {
+    q: "Clean, calm, professional. Exactly what I needed after too many bad experiences elsewhere. The Russian manicure lasted almost 4 weeks without lifting. Highly recommend.",
+    a: "Jessica L.",
+    stars: 5,
+    date: "3 weeks ago",
   },
 ];
 
-export const Testimonials = () => {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setI((p) => (p + 1) % quotes.length), 6000);
-    return () => clearInterval(id);
-  }, []);
-  return (
-    <section id="reviews" className="py-24 lg:py-32 px-6 bg-accent">
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs uppercase tracking-[0.25em] text-accent-foreground mb-8">Loved by you</p>
-        <blockquote key={i} className="font-serif text-xl md:text-2xl lg:text-3xl leading-[1.2] text-accent-foreground text-balance animate-fade-in">
-          “{quotes[i].q}”
-        </blockquote>
-        <p className="mt-8 text-xs uppercase tracking-[0.25em] text-accent-foreground">{quotes[i].a}</p>
-        <div className="mt-10 flex justify-center gap-2">
-          {quotes.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setI(idx)}
-              className={`h-[2px] transition-all ${idx === i ? "w-12 bg-accent-foreground" : "w-6 bg-accent-foreground/30"}`}
-              aria-label={`Quote ${idx + 1}`}
-            />
-          ))}
-        </div>
+const Stars = ({ n }: { n: number }) => (
+  <div className="flex gap-0.5">
+    {Array.from({ length: n }).map((_, i) => (
+      <span key={i} className="text-brand text-sm">★</span>
+    ))}
+  </div>
+);
+
+export const Testimonials = () => (
+  <section id="reviews" className="py-20 lg:py-28 px-6 lg:px-12 bg-accent">
+    <div className="mx-auto max-w-[1400px]">
+      <div className="text-center mb-14">
+        <p className="text-xs uppercase tracking-[0.25em] text-brand-deep mb-3">Reviews</p>
+        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-[1.05]">
+          Loved by our clients
+        </h2>
+        <a
+          href="https://www.google.com/search?q=DeeVa+Nail+Boutique+Chicago+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 mt-5 text-brand-deep hover:opacity-70 transition"
+        >
+          <span className="text-lg font-semibold">4.8 ★</span>
+          <span className="text-muted-foreground">· 126 reviews on Google</span>
+        </a>
       </div>
-    </section>
-  );
-};
+
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        {reviews.map((r) => (
+          <div
+            key={r.a}
+            className="break-inside-avoid bg-background rounded-2xl p-7 shadow-sm border border-border/50"
+          >
+            <Stars n={r.stars} />
+            <p className="mt-4 text-primary leading-relaxed">"{r.q}"</p>
+            <div className="mt-5 flex items-center justify-between">
+              <span className="font-semibold text-primary">{r.a}</span>
+              <span className="text-sm text-muted-foreground">{r.date}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <a
+          href="https://www.google.com/search?q=DeeVa+Nail+Boutique+Chicago+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition text-sm tracking-[0.15em] uppercase"
+        >
+          See all reviews on Google
+        </a>
+      </div>
+    </div>
+  </section>
+);

@@ -1,10 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
-type Stat = { value: number; suffix?: string; label: string };
+const GOOGLE_URL = "https://www.google.com/search?q=DeeVa+Nail+Boutique+Chicago+reviews";
+
+type Stat = { value: number; suffix?: string; label: string; link?: string; sub?: string };
 
 const stats: Stat[] = [
   { value: 2000, suffix: "+", label: "Happy clients" },
-  { value: 5.0, label: "Google rating" },
+  {
+    value: 4.8,
+    label: "Google rating",
+    link: GOOGLE_URL,
+    sub: "Google reviews",
+  },
   { value: 5, suffix: "+", label: "Years of experience" },
   { value: 100, suffix: "%", label: "Non-toxic" },
 ];
@@ -44,24 +51,45 @@ const Counter = ({ stat }: { stat: Stat }) => {
     return () => io.disconnect();
   }, [stat.value]);
 
-  return (
+  const inner = (
     <div ref={ref} className="text-center">
-      <div className="font-serif text-3xl md:text-4xl text-brand leading-none">
+      <div className="font-serif text-4xl md:text-5xl lg:text-6xl text-brand leading-none">
         {fmt(count, isFloat)}
         {stat.suffix && <span>{stat.suffix}</span>}
         {stat.label === "Google rating" && <span className="text-brand-deep"> ★</span>}
       </div>
-      <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] text-muted-foreground mt-2">
+      <p className="text-sm md:text-base font-semibold uppercase tracking-[0.18em] text-muted-foreground mt-3">
         {stat.label}
       </p>
+      {stat.sub && (
+        <p className="text-sm text-muted-foreground/70 mt-1 tracking-wide">
+          {stat.sub}
+        </p>
+      )}
     </div>
   );
+
+  if (stat.link) {
+    return (
+      <a
+        href={stat.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:opacity-70 transition-opacity"
+        aria-label={`${stat.label} — see our Google reviews`}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return inner;
 };
 
 export const TrustBar = () => (
   <section
     aria-label="Trust signals"
-    className="py-10 md:py-12 px-6 lg:px-12 bg-secondary/40 border-y border-border"
+    className="py-14 md:py-20 px-6 lg:px-12 bg-secondary/40 border-y border-border"
   >
     <div className="mx-auto max-w-[1400px] grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6">
       {stats.map((s) => (
