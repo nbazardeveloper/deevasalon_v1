@@ -27,3 +27,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=deevasalon-v1
+          preCommands: npx wrangler whoami && npx wrangler pages list
