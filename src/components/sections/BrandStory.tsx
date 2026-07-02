@@ -7,6 +7,7 @@ import img3 from "@/assets/aboutus/deeva-nail-boutique-manicure-station.webp";
 import img4 from "@/assets/aboutus/deeva-nail-boutique-salon-atmosphere.webp";
 import img5 from "@/assets/aboutus/deeva-nail-boutique-nail-art-chicago.webp";
 import videoSrc from "@/assets/aboutus/deeva-nail-boutique-interior-tour.webm";
+import videoPoster from "@/assets/aboutus/deeva-nail-boutique-salon-atmosphere.webp";
 
 const photos = [
   { src: img1, alt: "DEEVA Nail Boutique – Chicago studio" },
@@ -111,6 +112,7 @@ export const BrandStory = () => {
             <video
               ref={videoRef}
               preload="none"
+              poster={videoPoster}
               loop
               muted
               playsInline

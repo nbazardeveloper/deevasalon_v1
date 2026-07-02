@@ -60,15 +60,15 @@ export const Testimonials = () => (
           className="inline-flex items-center gap-2 mt-5 text-brand-deep hover:opacity-70 transition"
         >
           <span className="text-lg font-semibold">4.8 ★</span>
-          <span className="text-muted-foreground">· 126 reviews on Google</span>
+          <span className="text-muted-foreground">· Reviews on Google</span>
         </a>
       </div>
 
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-        {reviews.map((r) => (
+        {reviews.map((r, idx) => (
           <div
             key={r.a}
-            className="break-inside-avoid bg-background rounded-2xl p-7 shadow-sm border border-border/50"
+            className={`break-inside-avoid bg-background rounded-2xl p-7 shadow-sm border border-border/50 ${idx >= 3 ? "hidden sm:block" : ""}`}
           >
             <Stars n={r.stars} />
             <p className="mt-4 text-primary leading-relaxed">"{r.q}"</p>

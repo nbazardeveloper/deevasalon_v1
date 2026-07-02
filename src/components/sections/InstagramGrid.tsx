@@ -1,39 +1,29 @@
-import img01 from "@/assets/ourwork/deeva-nail-art-chicago-1.webp";
-import img02 from "@/assets/ourwork/deeva-nail-art-chicago-2.webp";
-import img03 from "@/assets/ourwork/deeva-nail-art-chicago-3.webp";
-import img04 from "@/assets/ourwork/deeva-nail-art-chicago-4.webp";
-import img05 from "@/assets/ourwork/deeva-nail-art-chicago-5.webp";
-import img06 from "@/assets/ourwork/deeva-nail-art-chicago-6.webp";
-import img07 from "@/assets/ourwork/deeva-russian-manicure-west-loop-1.webp";
-import img08 from "@/assets/ourwork/deeva-russian-manicure-west-loop-2.webp";
-import img09 from "@/assets/ourwork/deeva-gel-x-extensions-chicago-1.webp";
-import img10 from "@/assets/ourwork/deeva-gel-x-extensions-chicago-2.webp";
-import img11 from "@/assets/ourwork/deeva-nail-design-boutique-chicago-1.webp";
-import img12 from "@/assets/ourwork/deeva-nail-design-boutique-chicago-2.webp";
-import img13 from "@/assets/ourwork/deeva-manicure-nail-boutique-chicago-1.webp";
-import img14 from "@/assets/ourwork/deeva-manicure-nail-boutique-chicago-2.webp";
-import img15 from "@/assets/ourwork/deeva-nail-art-west-loop-salon-1.webp";
-import img16 from "@/assets/ourwork/deeva-nail-art-west-loop-salon-2.webp";
-import img17 from "@/assets/ourwork/deeva-premium-nail-care-chicago.webp";
+
+import img01 from "@/assets/ourwork/deeva-russian-manicure-west-loop-1.webp";
+import img02 from "@/assets/ourwork/deeva-russian-manicure-west-loop-2.webp";
+import img03 from "@/assets/ourwork/deeva-gel-x-extensions-chicago-1.webp";
+import img04 from "@/assets/ourwork/deeva-gel-x-extensions-chicago-2.webp";
+import img05 from "@/assets/ourwork/deeva-nail-design-boutique-chicago-1.webp";
+import img06 from "@/assets/ourwork/deeva-nail-design-boutique-chicago-2.webp";
+import img07 from "@/assets/ourwork/deeva-manicure-nail-boutique-chicago-1.webp";
+import img08 from "@/assets/ourwork/deeva-manicure-nail-boutique-chicago-2.webp";
+import img09 from "@/assets/ourwork/deeva-nail-art-west-loop-salon-1.webp";
+import img10 from "@/assets/ourwork/deeva-nail-art-west-loop-salon-2.webp";
+import img11 from "@/assets/ourwork/deeva-premium-nail-care-chicago.webp";
 
 const imgs = [
-  { src: img01, alt: "DEEVA nail art Chicago" },
-  { src: img02, alt: "DEEVA nail art Chicago" },
-  { src: img03, alt: "DEEVA nail art Chicago" },
-  { src: img04, alt: "DEEVA nail art Chicago" },
-  { src: img05, alt: "DEEVA nail art Chicago" },
-  { src: img06, alt: "DEEVA nail art Chicago" },
-  { src: img07, alt: "DEEVA Russian manicure West Loop" },
-  { src: img08, alt: "DEEVA Russian manicure West Loop" },
-  { src: img09, alt: "DEEVA Gel-X extensions Chicago" },
-  { src: img10, alt: "DEEVA Gel-X extensions Chicago" },
-  { src: img11, alt: "DEEVA nail design boutique Chicago" },
-  { src: img12, alt: "DEEVA nail design boutique Chicago" },
-  { src: img13, alt: "DEEVA manicure nail boutique Chicago" },
-  { src: img14, alt: "DEEVA manicure nail boutique Chicago" },
-  { src: img15, alt: "DEEVA nail art West Loop salon" },
-  { src: img16, alt: "DEEVA nail art West Loop salon" },
-  { src: img17, alt: "DEEVA premium nail care Chicago" },
+
+  { src: img01, alt: "DEEVA Russian manicure West Loop" },
+  { src: img02, alt: "DEEVA Russian manicure West Loop" },
+  { src: img03, alt: "DEEVA Gel-X extensions Chicago" },
+  { src: img04, alt: "DEEVA Gel-X extensions Chicago" },
+  { src: img05, alt: "DEEVA nail design boutique Chicago" },
+  { src: img06, alt: "DEEVA nail design boutique Chicago" },
+  { src: img07, alt: "DEEVA manicure nail boutique Chicago" },
+  { src: img08, alt: "DEEVA manicure nail boutique Chicago" },
+  { src: img09, alt: "DEEVA nail art West Loop salon" },
+  { src: img10, alt: "DEEVA nail art West Loop salon" },
+  { src: img11, alt: "DEEVA premium nail care Chicago" },
 ];
 
 export const InstagramGrid = () => (
