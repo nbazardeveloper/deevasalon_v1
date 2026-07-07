@@ -1,63 +1,24 @@
 import { useEffect, useRef, useState } from "react";
-import { X } from "lucide-react";
-import { createPortal } from "react-dom";
 import img1 from "@/assets/aboutus/deeva-nail-boutique-chicago-studio.webp";
 import img2 from "@/assets/aboutus/deeva-nail-boutique-west-loop-interior.webp";
 import img3 from "@/assets/aboutus/deeva-nail-boutique-manicure-station.webp";
-import img4 from "@/assets/aboutus/deeva-nail-boutique-salon-atmosphere.webp";
+import img4 from "@/assets/aboutus/deeva-nail-boutique-salon-seating.webp";
 import img5 from "@/assets/aboutus/deeva-nail-boutique-nail-art-chicago.webp";
-import videoSrc from "@/assets/aboutus/deeva-nail-boutique-interior-tour.webm";
-import videoPoster from "@/assets/aboutus/deeva-nail-boutique-salon-atmosphere.webp";
+import img6 from "@/assets/aboutus/deeva-nail-boutique-polish-wall.webp";
 
 const photos = [
   { src: img1, alt: "DEEVA Nail Boutique – Chicago studio" },
   { src: img2, alt: "DEEVA Nail Boutique – West Loop interior" },
   { src: img3, alt: "DEEVA Nail Boutique – manicure station" },
-  { src: img4, alt: "DEEVA Nail Boutique – salon atmosphere" },
+  { src: img4, alt: "DEEVA Nail Boutique – salon seating area" },
   { src: img5, alt: "DEEVA Nail Boutique – nail art Chicago" },
+  { src: img6, alt: "DEEVA Nail Boutique – polish wall" },
 ];
 
 export const BrandStory = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
-  const [lightbox, setLightbox] = useState<number | null>(null);
-
-  // Lazy-load video on scroll
-  useEffect(() => {
-    const video = videoRef.current;
-    const section = sectionRef.current;
-    if (!video || !section) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.preload = "metadata";
-          video.load();
-          video.play().catch(() => {});
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "300px" }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  // Lightbox keyboard nav
-  useEffect(() => {
-    if (lightbox === null) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
-      if (e.key === "ArrowRight") setLightbox((p) => ((p ?? 0) + 1) % photos.length);
-      if (e.key === "ArrowLeft") setLightbox((p) => ((p ?? 0) - 1 + photos.length) % photos.length);
-    };
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [lightbox]);
+  const [active, setActive] = useState(0);
 
   // Drag-to-scroll on strip
   useEffect(() => {
@@ -78,7 +39,7 @@ export const BrandStory = () => {
   return (
     <section id="discover" ref={sectionRef} className="py-20 lg:py-28 bg-secondary/40 overflow-hidden">
 
-      {/* ── Top: Text + Video ── */}
+      {/* ── Top: Text + Featured photo ── */}
       <div className="px-6 lg:px-12 mx-auto max-w-[1600px] grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px] gap-10 lg:gap-14 items-center mb-10 lg:mb-14">
 
         {/* Text */}
@@ -106,21 +67,20 @@ export const BrandStory = () => {
           </a>
         </div>
 
-        {/* Portrait video */}
+        {/* Portrait featured photo (swaps when a thumbnail below is clicked) */}
         <div className="w-full mx-auto lg:mx-0 shrink-0">
-          <div className="aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-secondary shadow-xl">
-            <video
-              ref={videoRef}
-              preload="none"
-              poster={videoPoster}
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-              aria-label="DEEVA Nail Boutique – interior and exterior tour"
-            >
-              <source src={videoSrc} type="video/webm" />
-            </video>
+          <div className="aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-secondary shadow-xl relative">
+            {photos.map((p, idx) => (
+              <img
+                key={idx}
+                src={p.src}
+                alt={p.alt}
+                loading={idx === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  idx === active ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -135,9 +95,12 @@ export const BrandStory = () => {
         {photos.map((p, idx) => (
           <button
             key={idx}
-            onClick={() => setLightbox(idx)}
-            className="group relative shrink-0 h-[280px] lg:h-[360px] aspect-[3/4] overflow-hidden rounded-[1.25rem] snap-start focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            onClick={() => setActive(idx)}
+            className={`group relative shrink-0 h-[280px] lg:h-[360px] aspect-[3/4] overflow-hidden rounded-[1.25rem] snap-start focus:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
+              idx === active ? "ring-2 ring-brand" : ""
+            }`}
             aria-label={p.alt}
+            aria-pressed={idx === active}
           >
             <img
               src={p.src}
@@ -145,47 +108,11 @@ export const BrandStory = () => {
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            <div className={`absolute inset-0 transition-colors duration-300 ${idx === active ? "bg-black/10" : "bg-black/0 group-hover:bg-black/20"}`} />
           </button>
         ))}
       </div>
       </div>
-
-      {/* Lightbox */}
-      {lightbox !== null && typeof document !== "undefined" && createPortal(
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            onClick={() => setLightbox(null)}
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition"
-            aria-label="Закрыть"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          <button
-            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + photos.length) % photos.length); }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition text-2xl leading-none"
-            aria-label="Предыдущее"
-          >←</button>
-          <img
-            src={photos[lightbox].src}
-            alt={photos[lightbox].alt}
-            onClick={(e) => e.stopPropagation()}
-            className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl shadow-2xl"
-          />
-          <button
-            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % photos.length); }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition text-2xl leading-none"
-            aria-label="Следующее"
-          >→</button>
-          <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-widest">
-            {lightbox + 1} / {photos.length}
-          </p>
-        </div>,
-        document.body
-      )}
     </section>
   );
 };

@@ -53,6 +53,7 @@ export const addons: PriceItem[] = [
   { name: "Nail Repair (each)", price: "$8"       },
   { name: "Dazzle Dry Upgrade", price: "$8"       },
   { name: "Gel Polish Upgrade", price: "$20"      },
+  { name: "Cat Eye",            price: "$15"      },
 ];
 
 // ── REMOVALS ─────────────────────────────────
@@ -61,6 +62,7 @@ export const removals: PriceItem[] = [
   { name: "Dip Powder Removal", desc: "Thorough removal of dip powder product",         price: "$20" },
   { name: "Gel-X Removal",      desc: "Careful removal of Gel-X extensions",            price: "$25" },
   { name: "Hard Gel Removal",   desc: "Safe removal of hard gel enhancements",          price: "$25" },
+  { name: "Acrylics Removal",   desc: "Safe removal of acrylic enhancements",           price: "$30" },
 ];
 
 // ── CATEGORIES — Manicures (with duration) ───
