@@ -2,7 +2,7 @@ import { Phone, MapPin, Clock, CreditCard, Wifi, Accessibility, Tv, Heart, Car }
 import { SQUARE_BOOKING_URL, VAGARO_BOOKING_URL } from "@/data/booking";
 
 const hours = [
-  { d: "Sunday",    h: "9:00 AM – 5:00 PM" },
+  { d: "Sunday",    h: "9:00 AM – 6:00 PM" },
   { d: "Monday",    h: "10:00 AM – 8:00 PM" },
   { d: "Tuesday",   h: "10:00 AM – 8:00 PM" },
   { d: "Wednesday", h: "10:00 AM – 8:00 PM" },
