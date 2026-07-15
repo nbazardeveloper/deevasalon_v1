@@ -7,6 +7,7 @@ import heroMobileSlide1 from "@/assets/hero-mobile-slide1.webp";
 import heroNeonTips from "@/assets/hero-neon-tips.webp";
 import { useIsMobile } from "@/hooks/use-mobile";
 import logoWhite from "@/assets/logos/Logo-white.webp";
+import { SQUARE_BOOKING_URL, VAGARO_BOOKING_URL } from "@/data/booking";
 
 const desktopSlides = [slider1, slider2, slider3];
 const mobileSlides  = [heroNeonTips, heroMobileSlide1, heroMobileNeon];
@@ -63,12 +64,21 @@ export const Hero = () => {
         </h1>
         <div className="mt-10 lg:mt-12 flex flex-wrap gap-3">
           <a
-            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
+            href={SQUARE_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="shine-cta group inline-flex items-center gap-3 px-9 lg:px-10 py-4 lg:py-5 rounded-full bg-background/95 backdrop-blur-md text-primary text-xs tracking-[0.25em] uppercase shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.45)] ring-1 ring-primary/5 hover:bg-background hover:shadow-[0_18px_50px_-10px_hsl(var(--primary)/0.55)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
           >
-            <span>Book an appointment now</span>
+            <span>Book on Square</span>
+            <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+          <a
+            href={VAGARO_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 px-9 lg:px-10 py-4 lg:py-5 rounded-full border border-primary-foreground/70 text-primary-foreground text-xs tracking-[0.25em] uppercase hover:bg-primary-foreground hover:text-primary hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+          >
+            <span>Book on Vagaro</span>
             <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
           <a

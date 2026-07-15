@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { SQUARE_BOOKING_URL, VAGARO_BOOKING_URL } from "@/data/booking";
 
 const PHONE_DISPLAY = "(312) 841-7587";
 const PHONE_HREF = "tel:+13128417587";
@@ -15,12 +16,20 @@ export const FinalCTA = () => (
       </p>
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
         <a
-          href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
+          href={SQUARE_BOOKING_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-9 py-4 rounded-full bg-brand text-brand-foreground text-xs tracking-[0.25em] uppercase shadow-[0_10px_40px_-10px_hsl(var(--brand)/0.6)] hover:bg-brand-deep hover:-translate-y-0.5 transition-all duration-300"
         >
-          Book online
+          Book on Square
+        </a>
+        <a
+          href={VAGARO_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center px-9 py-4 rounded-full border border-primary/30 text-primary text-xs tracking-[0.25em] uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+        >
+          Book on Vagaro
         </a>
         <a
           href={PHONE_HREF}

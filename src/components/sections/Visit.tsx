@@ -1,4 +1,5 @@
 import { Phone, MapPin, Clock, CreditCard, Wifi, Accessibility, Tv, Heart, Car } from "lucide-react";
+import { SQUARE_BOOKING_URL, VAGARO_BOOKING_URL } from "@/data/booking";
 
 const hours = [
   { d: "Sunday",    h: "9:00 AM – 5:00 PM" },
@@ -99,14 +100,24 @@ export const Visit = () => (
             </ul>
           </div>
 
-          <a
-            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex w-full items-center justify-center px-7 py-4 rounded-full bg-brand text-brand-foreground text-xs tracking-[0.25em] uppercase hover:bg-brand-deep transition"
-          >
-            Book an appointment
-          </a>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href={SQUARE_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center px-7 py-4 rounded-full bg-brand text-brand-foreground text-xs tracking-[0.25em] uppercase hover:bg-brand-deep transition"
+            >
+              Book on Square
+            </a>
+            <a
+              href={VAGARO_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center px-7 py-4 rounded-full border border-brand text-brand text-xs tracking-[0.25em] uppercase hover:bg-brand hover:text-brand-foreground transition"
+            >
+              Book on Vagaro
+            </a>
+          </div>
         </div>
       </div>
     </div>

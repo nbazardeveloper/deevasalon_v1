@@ -24,7 +24,7 @@ export const manicures: PriceItem[] = [
 
 // ── PEDICURES (used in Pricing tab) ──────────
 export const pedicures: PriceItem[] = [
-  { name: "Classic Pedicure",               desc: "Nail shaping, cuticle care, callus treatment, exfoliation, lotion, warm towel, regular polish",           price: "$45"  },
+  { name: "Classic Pedicure",               desc: "Nail shaping, cuticle care, exfoliation, lotion, regular polish",           price: "$45"  },
   { name: "Dazzle Dry Pedicure",            desc: "Classic pedicure finished with quick-drying Dazzle Dry polish",                                           price: "$60"  },
   { name: "No-Chip Pedicure (Gel)",         desc: "Classic pedicure with glossy, chip-resistant gel polish that lasts for weeks",                            price: "$65"  },
   { name: "Smart / Russian Pedicure",       desc: "Deep exfoliation, callus & heel repair, paraffin therapy, collagen socks, therapeutic massage",           price: "$85"  },

@@ -7,18 +7,12 @@ const offers = [
   },
   {
     num: "02",
-    title: "Services Over $100",
-    perk: "10% off",
-    desc: "Receive 10% off when your service total exceeds $100.",
-  },
-  {
-    num: "03",
     title: "Bring a Friend",
     perk: "10% off",
     desc: "Visit with a friend and each of you receives 10% off.",
   },
   {
-    num: "04",
+    num: "03",
     title: "Leave a Review",
     perk: "$5 credit",
     desc: "Share your experience with us and receive a $5 credit toward your next visit.",

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { manicures, pedicures, kids, addons, removals, type PriceItem } from "@/data/prices";
+import { SQUARE_BOOKING_URL, VAGARO_BOOKING_URL } from "@/data/booking";
 
 type Item = PriceItem;
 
@@ -78,14 +79,22 @@ export const Pricing = () => {
           )}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="flex flex-wrap items-center justify-center gap-3 mt-16">
           <a
-            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
+            href={SQUARE_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex px-8 py-4 rounded-full bg-brand text-brand-foreground text-xs tracking-[0.25em] uppercase shadow-[0_10px_30px_-10px_hsl(var(--brand)/0.6)] hover:bg-brand-deep hover:-translate-y-0.5 transition-all duration-300"
           >
-            Book an appointment now
+            Book on Square
+          </a>
+          <a
+            href={VAGARO_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex px-8 py-4 rounded-full border border-brand text-brand text-xs tracking-[0.25em] uppercase hover:bg-brand hover:text-brand-foreground hover:-translate-y-0.5 transition-all duration-300"
+          >
+            Book on Vagaro
           </a>
         </div>
       </div>

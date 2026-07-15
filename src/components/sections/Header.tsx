@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import logoBlack from "@/assets/logos/Logo-black.webp";
 import logoWhite from "@/assets/logos/Logo-white.webp";
+import { SQUARE_BOOKING_URL, VAGARO_BOOKING_URL } from "@/data/booking";
 
 const PHONE_DISPLAY = "(312) 841-7587";
 const PHONE_HREF = "tel:+13128417587";
@@ -89,19 +90,32 @@ export const Header = () => {
         </a>
 
         {/* Right col */}
-        <div className="flex items-center justify-end gap-3 lg:gap-5">
+        <div className="flex items-center justify-end gap-1.5 xl:gap-2 2xl:gap-3">
           <a
-            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" target="_blank" rel="noopener noreferrer"
-            className="hidden xl:inline-flex items-center px-5 py-2.5 rounded-full bg-brand text-brand-foreground hover:bg-brand-deep transition text-xs tracking-[0.25em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+            href={SQUARE_BOOKING_URL} target="_blank" rel="noopener noreferrer"
+            className="hidden xl:inline-flex items-center px-3 2xl:px-5 py-2.5 rounded-full bg-brand text-brand-foreground hover:bg-brand-deep transition text-[10px] 2xl:text-xs tracking-[0.12em] 2xl:tracking-[0.25em] uppercase whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
-            Book now
+            Square
           </a>
           <a
-            href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
+            href={VAGARO_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={
-              `hidden xl:inline-flex items-center px-5 py-2.5 rounded-full transition text-xs tracking-[0.25em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ` +
+              `hidden xl:inline-flex items-center px-3 2xl:px-5 py-2.5 rounded-full transition text-[10px] 2xl:text-xs tracking-[0.12em] 2xl:tracking-[0.25em] uppercase whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ` +
+              (open || scrolled
+                ? 'bg-white text-brand border border-brand hover:bg-brand hover:text-brand-foreground focus-visible:ring-brand'
+                : 'border border-white text-white hover:bg-white hover:text-brand focus-visible:ring-white')
+            }
+          >
+            Vagaro
+          </a>
+          <a
+            href={SQUARE_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              `hidden xl:inline-flex items-center px-3 2xl:px-5 py-2.5 rounded-full transition text-[10px] 2xl:text-xs tracking-[0.12em] 2xl:tracking-[0.25em] uppercase whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ` +
               (open || scrolled
                 ? 'bg-white text-brand border border-brand hover:bg-brand hover:text-brand-foreground focus-visible:ring-brand'
                 : 'border border-white text-white hover:bg-white hover:text-brand focus-visible:ring-white')
@@ -165,14 +179,23 @@ export const Header = () => {
             </ul>
             <div className="flex flex-col gap-3">
               <a
-                href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services" target="_blank" rel="noopener noreferrer"
+                href={SQUARE_BOOKING_URL} target="_blank" rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="inline-flex items-center justify-center px-5 py-3 rounded-full bg-brand text-brand-foreground hover:bg-brand-deep transition text-xs tracking-[0.25em] uppercase"
               >
-                Book now
+                Book · Square
               </a>
               <a
-                href="https://book.squareup.com/appointments/ihz187drfo6900/location/LDGYV695G2H3H/services"
+                href={VAGARO_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center justify-center px-5 py-3 rounded-full bg-brand text-brand-foreground hover:bg-brand-deep transition text-xs tracking-[0.25em] uppercase"
+              >
+                Book · Vagaro
+              </a>
+              <a
+                href={SQUARE_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
